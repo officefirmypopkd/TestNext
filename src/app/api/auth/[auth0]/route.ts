@@ -1,6 +1,6 @@
 // import { handleAuth } from '@auth0/nextjs-auth0';
 
-import { handleAuth, handleLogin } from '@auth0/nextjs-auth0';
+import { handleAuth, handleLogin, handleLogout } from '@auth0/nextjs-auth0';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,4 +22,5 @@ export const GET = handleAuth({
     },
     returnTo: '/profile',
   }),
+  logout: handleLogout({ returnTo: '/' }),
 });
