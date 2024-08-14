@@ -20,16 +20,16 @@ const Profile: NextPage = () => {
   }, [router, user]);
 
   if (!user) {
-    return null;
+    return (
+      <div className="login-prompt">
+        <h1>Please Log In</h1>
+        <a href="/api/auth/login" className="login-button">
+          Login
+        </a>{' '}
+        {/* Add login link */}
+      </div>
+    );
   }
-
-  // if (!user.email_verified){
-  //   // Redirect to the homepage if the user is not authenticated
-  //   React.useEffect(() => {
-  //     router.push('/emailVerify');
-  //   }, [router]);
-  //   return null;
-  // }
 
   return (
     <div className="content-layout">
@@ -58,6 +58,7 @@ const Profile: NextPage = () => {
           <div className="profile__details">
             <CodeSnippet title="Decoded ID Token" code={JSON.stringify(user, null, 2)} />
           </div>
+          <a href="/api/auth/logout">Logout</a>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export const GET = handleAuth({
       audience: process.env.AUTH0_AUDIENCE,
       scope: 'openid profile email offline_access',
     },
-    returnTo: '/profile',
+    returnTo: '/',
   }),
   signup: handleLogin({
     authorizationParams: {
@@ -16,6 +16,6 @@ export const GET = handleAuth({
       audience: process.env.AUTH0_AUDIENCE,
       scope: 'openid profile email offline_access',
     },
-    returnTo: '/emailVerify',
+    returnTo: '/',
   }),
 });
