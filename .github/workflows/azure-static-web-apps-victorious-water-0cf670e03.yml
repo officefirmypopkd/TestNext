@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - '*'
-      - '!main'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -12,7 +11,7 @@ on:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.ref.branches.name != 'main' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -36,7 +35,7 @@ jobs:
           deployment_environment: "dev"
         env:
             AUTH0_SECRET: 'ff9159ece74187fc66e41e521989c47f8f5594dbdda7e50e49601c613eefd0e8'
-            AUTH0_BASE_URL: https://calm-pond-022f2dd03.5.azurestaticapps.net
+            AUTH0_BASE_URL: 'https://victorious-water-0cf670e03-dev.westeurope.5.azurestaticapps.net'
             AUTH0_ISSUER_BASE_URL: 'https://dev-yppus8ndapkd1nax.us.auth0.com'
             AUTH0_CLIENT_ID: 'BHlMxwh6WV6dWLsZ58IluyKyL1KlxgMJ'
             AUTH0_CLIENT_SECRET: 'VHwdtvB2cPT32f9a5yRkzKPGPidPrAjBGvvyMZkPpgrIUNYvOaXoRICef_ZWN8ee'
