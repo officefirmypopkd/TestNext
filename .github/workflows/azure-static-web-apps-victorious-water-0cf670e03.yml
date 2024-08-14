@@ -32,6 +32,13 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+            AUTH0_SECRET: 'ff9159ece74187fc66e41e521989c47f8f5594dbdda7e50e49601c613eefd0e8'
+            AUTH0_BASE_URL: https://calm-pond-022f2dd03.5.azurestaticapps.net
+            AUTH0_ISSUER_BASE_URL: 'https://dev-yppus8ndapkd1nax.us.auth0.com'
+            AUTH0_CLIENT_ID: 'BHlMxwh6WV6dWLsZ58IluyKyL1KlxgMJ'
+            AUTH0_CLIENT_SECRET: 'VHwdtvB2cPT32f9a5yRkzKPGPidPrAjBGvvyMZkPpgrIUNYvOaXoRICef_ZWN8ee'
+            AUTH0_HOOK_SECRET: "66f9bbf88aaa4f6b8740039338907f0255929b0ae18938a8814fd3f6a38a877a"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
