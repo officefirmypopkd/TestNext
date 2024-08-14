@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - main
+      - 1-init
   pull_request:
     types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+    # branches:
+    #   - main
 
 jobs:
   build_and_deploy_job:
@@ -32,6 +33,7 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+          deployment_environment: "dev"
         env:
             AUTH0_SECRET: 'ff9159ece74187fc66e41e521989c47f8f5594dbdda7e50e49601c613eefd0e8'
             AUTH0_BASE_URL: https://calm-pond-022f2dd03.5.azurestaticapps.net
